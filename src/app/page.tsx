@@ -3,7 +3,6 @@ import { getCrypto } from "@/lib/api";
 
 export default async function Home() {
     const coins = await getCrypto();
-    console.log(coins);
 
-    return <Dashboard />;
+    return <Dashboard initialCoins={coins} />;
 }
