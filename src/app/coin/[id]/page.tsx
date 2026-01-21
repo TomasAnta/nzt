@@ -1,5 +1,12 @@
-const page = () => {
-    return <div>details page</div>;
-};
+import { getCryptoDetails } from "@/lib/api";
+import { Details } from "@/components/templates/Details";
 
-export default page;
+interface PageProps {
+    params: Promise<{ id: string }>;
+}
+
+export default async function CoinPage({ params }: PageProps) {
+    const { id } = await params;
+    const coin = await getCryptoDetails(id);
+    return <Details coin={coin} />;
+}

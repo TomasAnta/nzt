@@ -18,11 +18,7 @@ const SearchInput = ({ onSearch }: SearchInputProps) => {
         return () => clearTimeout(debounce);
     }, [inputValue, onSearch]);
 
-    return (
-        <div>
-            <Input placeholder="Search coins..." value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-        </div>
-    );
+    return <Input className="w-full" placeholder="Search coins..." value={inputValue} onChange={(e) => setInputValue(e.target.value)} />;
 };
 
 export default SearchInput;

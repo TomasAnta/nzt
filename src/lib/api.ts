@@ -1,4 +1,4 @@
-import { Coin } from "./types";
+import { Coin, CoinDetails } from "./types";
 
 const BASE_URL = "https://api.coingecko.com/api/v3";
 
@@ -11,6 +11,20 @@ export async function getCrypto(): Promise<Coin[]> {
 
     if (!response.ok) {
         throw new Error("Failed to fetch coins");
+    }
+
+    return response.json();
+}
+
+export async function getCryptoDetails(id: string): Promise<CoinDetails> {
+    const response = await fetch(`${BASE_URL}/coins/${id}`, { next: { revalidate: 60 } });
+
+    if (response.status === 429) {
+        throw new Error("Rate Limit Exceeded");
+    }
+
+    if (!response.ok) {
+        throw new Error("Failed to fetch coin details");
     }
 
     return response.json();
