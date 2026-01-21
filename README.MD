@@ -1,4 +1,4 @@
-# 🪙 Crypto Tracker Challenge
+# Crypto Tracker Challenge
 
 This is a simple crypto dashboard built with **Next.js** and **Tailwind CSS**, following Atomic Design patterns.
 
