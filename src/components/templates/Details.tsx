@@ -19,6 +19,7 @@ export const Details = ({ coin }: { coin: CoinDetails }) => {
             <div className="bg-gray-50 p-6 rounded-xl border">
                 <h2 className="text-xl font-bold mb-4">About {coin.name}</h2>
                 <div className="prose prose-sm max-w-none text-gray-600 leading-relaxed">
+                    {/* Lets avoid using dangerouslySetInnerHTML to avoid XSS */}
                     {coin.description.en ? parse(coin.description.en) : "No description available."}
                 </div>
             </div>
